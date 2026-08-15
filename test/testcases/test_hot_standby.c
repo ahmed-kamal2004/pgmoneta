@@ -369,7 +369,7 @@ MCTF_TEST_NEGATIVE(test_pgmoneta_hot_standby_reset)
    MCTF_ASSERT(pgmoneta_delete_directory(global_dir) == 0, cleanup, "failed to delete %s", global_dir);
    MCTF_ASSERT(create_file(standby_dir, "global") == 0, cleanup, "failed to create %s", global_dir);
 
-   MCTF_ASSERT(pgmoneta_tsclient_backup("primary", NULL, MANAGEMENT_ERROR_BACKUP_EXECUTE) == 0, cleanup, "second backup did not fail");
+   MCTF_ASSERT(pgmoneta_tsclient_backup("primary", NULL, false, NULL, MANAGEMENT_ERROR_BACKUP_EXECUTE) == 0, cleanup, "second backup did not fail");
    MCTF_ASSERT(!pgmoneta_exists(standby_dir), cleanup, "failed hot standby was not removed");
 
    /* The next backup takes the full copy path */
