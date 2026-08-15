@@ -60,6 +60,9 @@ OPTIONS
 --cascade
   Cascade a retain/expunge backup
 
+--async
+  Run backup, restore, archive, or delete asynchronously
+
 -?, --help
   Display help
 
@@ -101,6 +104,15 @@ expunge
 
 info
   Information about a backup
+
+job [JOB_ID|status SERVER COMMAND]
+  Retrieve a job by identifier, or the current/latest job for a server operation
+
+job-list [all|server SERVER|status STATUS]
+  List active and persisted jobs
+
+job-remove [job JOB_ID|all]
+  Remove one or all persisted job records
 
 list-backup
   List the backups for a server
